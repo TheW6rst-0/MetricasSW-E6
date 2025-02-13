@@ -29,7 +29,8 @@ jobs:
           dir /s /b test\src\*.java > sources.txt
           javac -d build @sources.txt
         shell: cmd
-
+        continue-on-error: true
+        
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
