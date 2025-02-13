@@ -24,12 +24,11 @@ jobs:
 
       # Compilar el proyecto usando javac
       - name: Compile Java
-  run: |
-    mkdir build
-    dir /s /b test\src\*.java > sources.txt
-    javac -d build @sources.txt
-  shell: cmd
-
+        run: |
+          mkdir build
+          dir /s /b test\src\*.java > sources.txt
+          javac -d build @sources.txt
+        shell: cmd
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
