@@ -30,10 +30,16 @@ jobs:
           javac -d build @sources.txt
         shell: cmd
         continue-on-error: true
-        
+
+      # SonarQube Scan
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
+        with:
+          sonar-project-key: TheW6rst-0_MetricasSW-E6
+          sonar-organization: thew6rst-0
+          sonar-project-name: MetricasSW-E6
+          sonar-project-version: 1.0
+          sonar.sources: test/src
+          sonar.sourceEncoding: UTF-8
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-       
-           
